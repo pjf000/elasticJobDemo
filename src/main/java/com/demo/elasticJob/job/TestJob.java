@@ -15,8 +15,8 @@ public class TestJob implements SimpleJob {
 
     @Override
     public void execute(ShardingContext shardingContext) {
-        System.out.println("test job start");
-        testService.test(100);
-        System.out.println("test job end");
+        System.out.println("test job start："+shardingContext.getShardingItem());
+        testService.test(shardingContext.getShardingItem());
+        System.out.println("test job end"+shardingContext.getShardingItem());
     }
 }
